@@ -4,4 +4,4 @@ Repositorio destinado a alojar los desarrollos relacionados al searchbox y al bu
 Hacer Fork del proycto y enviar Merge Request, a la rama develop. O bien, crear ramas específicas para cada featured o avance a subir.
 
 Todas las clases CSS e identificadores deben tener el prefijo "gsb-"
-ejemplo, <input id="gsb-mi-input" class="gsb-clase-del-input">
+ejemplo, id="gsb-mi-input" class="gsb-clase-del-input"
