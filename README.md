@@ -26,9 +26,13 @@ https://drive.google.com/drive/folders/15QmAfo6w9ofMfYQgWDqCgG5-KgHhznE5?usp=sha
 
 Esta carpeta contiene:
 1)el tema original con sus módulos requeridos (tema.zip),
+
 2)arhivo con la configuración requerida para el php.ini del servidor local (ini.txt),
+
 3)carpeta con los módulos de terceros instalados en la web de producción (modulos.zip), esta carpeta es opcional, para verificar compatibilidad.
+
 4)archivo core_config_data.sql, el cual debe ser importado en la db local (necesitarás modificar la url base, ubicada en las filas 2 y 3 de esta tabla SQL)
+
 5)Carpeta design.zip, la cual debe ser descomprimida dentro de la carpeta app del proyecto. Esta carpeta incluye los estilos personalizados del web.
 
 Documentación del Tema Electro:
