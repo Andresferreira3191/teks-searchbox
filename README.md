@@ -5,3 +5,9 @@ Hacer Fork del proycto y enviar Merge Request, a la rama develop. O bien, crear 
 
 Todas las clases CSS e identificadores deben tener el prefijo "gsb-"
 ejemplo, id="gsb-mi-input" class="gsb-clase-del-input"
+
+Sobre archivos SQL:
+
+el archivo core_config_data.sql contiene la configuración general de la tienda. Necesitas sustituir las las filas 2 y 3 de este archivo e incluir la ruta del front end de tu servidor local, ej: localhost:8080/
+
+La linea 167 de este archivo incluye los estilos customizados respaldados en la DB.
