@@ -1,0 +1,383 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Blank theme overrides
+//  _____________________________________________
+
+//  Theme file should contain declarations (overrides) ONLY OF EXISTING variables
+//  Otherwise this theme won't be available for parent nesting
+//  All new variables should be placed in local theme lib or local theme files
+.gsb-header-search{
+  float: left !important;
+  width: 330px !important;
+
+}
+.block-search{
+  float: right!important;
+  padding-right: 20px!important;
+  margin-top: -18px!important;
+}
+.gsb-header-top-link{
+  float: right!important;
+  margin-top: -12px!important;
+}
+.gsb-category{
+  margin-left: -58px;
+}
+.gsb-desktop{
+  display: block;
+}
+@color: #000;
+@font_family_1: 'Mukta Malar';
+@font_family_2: 'Mukta Malar', Arial;
+
+.gsb-search {
+  display: table;
+  .block-title{
+    display: none!important;
+  }
+  #search_autocomplete{
+    width: 400px;
+    margin-top: -30px;
+  }
+  .button{
+    display: none!important;
+  }
+  .input-text{
+    border-color: #fff!important;
+    ::-webkit-input-placeholder {
+      color: @color;
+    }
+    :-moz-placeholder {
+      color: @color;
+    }
+    ::-moz-placeholder {
+      color: @color;
+    }
+    background: none;
+    border: none;
+    outline: none;
+    width: 28px;
+    min-width: 0;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+    line-height: 18px;
+    margin: 5px 0;
+    font-size: 14px;
+    -webkit-appearance: none;
+    font-family: @font_family_1;
+    transition: all 0.6s ease;
+    cursor: pointer;
+    color: @color;
+    &+.gsb-div-search {
+      position: relative;
+      height: 28px;
+      width: 100%;
+      margin: -28px 0 0 0;
+      svg {
+        display: block;
+        position: absolute;
+        height: 28px;
+        width: 160px;
+        right: 0;
+        top: 0;
+        fill: none;
+        stroke: @color;
+        stroke-width: 1.5px;
+        stroke-dashoffset: 271.908;
+        stroke-dasharray: 59 212.908;
+        transition: all 0.6s ease;
+      }
+    }
+    &:not(:placeholder-shown) {
+      width: 160px;
+      padding: 0 4px;
+      cursor: text;
+      &+div {
+        svg {
+          stroke-dasharray: 150 212.908;
+          stroke-dashoffset: 300;
+        }
+      }
+    }
+    &:focus {
+      width: 160px;
+      padding: 0 4px;
+      cursor: text;
+      &+div {
+        svg {
+          stroke-dasharray: 150 212.908;
+          stroke-dashoffset: 300;
+        }
+      }
+    }
+  }
+}
+&::selection {
+  background: rgba(255, 255, 255, .2);
+}
+&::-moz-selection {
+  background: rgba(255, 255, 255, .2);
+}
+
+@media screen and (max-width: 768px), print {
+  .gsb-header-search{
+    display: none;
+  }
+}
+
+
+
+
+//Menu Hamburguesa
+@color_1: #f2f2f2;
+
+.gsb-main-menu {
+  display: none;
+  position: relative;
+  background: rgba(15, 99, 208, 0.64);
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  &:after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+}
+.gsb-container-menu {
+  width: 80%;
+  margin: 0 auto;
+}
+.gsb-core-menu {
+  text-align: left;
+  font: normal normal normal 1em/1 Roboto, sans-serif;
+  overflow: hidden;
+  li {
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+    a {
+      display: inline-block;
+      padding: 1em;
+      &:hover {
+        background: #0c4da2;
+        color: #fff!important;
+      }
+    }
+  }
+}
+li {
+  span.gsb-toggle {
+    padding-left: 1em;
+  }
+  span.gsb-toggle2 {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+  }
+}
+.gsb-toggle {
+  &:before {
+    content: "\f107";
+    font: normal normal normal 16px/1 FontAwesome;
+  }
+}
+.gsb-dropdown {
+  position: absolute;
+  width: 230px;
+  background: #fff;
+  text-align: left;
+  display: none;
+  li {
+    display: block;
+    a {
+      display: block;
+    }
+  }
+}
+.gsb-dropdown2 {
+  position: absolute;
+  width: 230px;
+  background: #0c4da2;
+  text-align: left;
+  display: none;
+  right: -100%;
+  top: 0;
+  li {
+    display: block;
+    a {
+      display: block;
+    }
+  }
+}
+.gsb-toggle2 {
+  &:before {
+    content: "\f105";
+    font: normal normal normal 16px/1 FontAwesome;
+  }
+}
+.gsb-hamburger-menu {
+  padding: 1em;
+  display: none;
+  font: normal normal normal 16px/1 Roboto;
+  text-transform: uppercase;
+}
+@media (max-width:720px) {
+  .gsb-header-top-link{
+    margin-top: -25px!important;
+    li{
+      margin-left: 40px!important;
+      margin-right: 40px!important;
+    }
+    .wishlist{
+      padding-top: 5px!important;
+    }
+  }
+  .gsb-main-menu {
+    height: 50px;
+    display: block;
+  }
+  .gsb-desktop{
+    display: none;
+  }
+  .gsb-container-menu {
+    width: 100%;
+  }
+  .gsb-navigation {
+    float: left;
+    display: block;
+    width: 100%;
+  }
+  .gsb-core-menu {
+    float: right;
+    width: 100%;
+    background: #fff;
+    margin: auto;
+    display: none;
+    li {
+      width: 100%;
+      display: block;
+      border-style: solid;
+      border-width: 1px;
+      border-top-color: #fff;
+      border-left-color: #fff;
+      border-right-color: #fff;
+      border-bottom-color: #cecece!important;
+      a {
+        display: block;
+        margin: auto;
+        color: #1a1a1a!important;
+      }
+    }
+  }
+  .gsb-hamburger-menu {
+    display: block;
+    text-align: center;
+    padding-right: 60px;
+    float: none;
+    width: 100%;
+  }
+  .gsb-burger-1 {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    border-radius: 30px;
+    right: 0;
+    margin-right: 80%;
+    background: #fff;
+    -webkit-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+    top: 15px;
+  }
+  .gsb-burger-2 {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    border-radius: 30px;
+    right: 0;
+    margin-right: 80%;
+    background: #fff;
+    -webkit-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+    top: 23px;
+  }
+  .gsb-burger-3 {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    border-radius: 30px;
+    right: 0;
+    margin-right: 80%;
+    background: #fff;
+    -webkit-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+    top: 31px;
+  }
+  .gsb-burger-1.open {
+    -webkit-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+    transform-origin: 50% 50%;
+    top: 25px;
+    width: 23px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+  }
+  .gsb-burger-2.open {
+    -webkit-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+    transform-origin: 50% 50%;
+    opacity: 0;
+  }
+  .gsb-burger-3.open {
+    -webkit-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+    transform-origin: 50% 50%;
+    top: 25px;
+    width: 23px;
+    transform: rotate(-45deg);
+  }
+  .gsb-dropdown {
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    position: relative;
+  }
+  .gsb-dropdown2 {
+    right: 0;
+    top: 0;
+    width: 100%;
+    position: relative;
+    padding: 0 20px;
+  }
+}
