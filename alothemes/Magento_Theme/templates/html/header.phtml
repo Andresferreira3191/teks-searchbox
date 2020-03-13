@@ -53,9 +53,6 @@
 					</div>
 					<div class="top-right mobile-center">
 						<div class="header-setting">
-                            <div class="gsb-header-search">
-                                <?php echo $this->getChildHtml('top.search'); ?>
-                            </div>
                             <?php echo $this->getChildHtml('store_language'); ?>
 							<?php echo $this->getChildHtml('currency'); ?>
 							<div class="customer">
@@ -64,23 +61,6 @@
 									<?php echo $this->getChildHtml('header.links'); ?>
 								</div>
 				            </div>
-                            <div class="righ-header-content gsb-header-top-link gsb-desktop">
-                                <ul class="top-link-product">
-                                    <?php //echo $this->getChildHtml('catalog.compare.link'); ?>
-                                    <li>
-                                        <a title="Compare" href="<?php echo $this->getUrl('catalog/product_compare') ?>" target="_blank" class="btn-compare icon icon-compare compare"></a>
-                                    </li>
-                                    <li>
-                                        <a title="My wishlist" href="<?php echo $this->getUrl('wishlist') ?>" target="_blank" class="wishlist icon icon-favorites">
-
-                                        </a>
-                                    </li>
-                                </ul>
-                                <?php echo $this->getChildHtml('minicart'); ?>
-                                <div class="place-menu-mobile menu-mobile"><i class="hidden">hidden</i>
-                                    <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Menu') ?></span></span>
-                                </div>
-                            </div>
 						</div>
 					</div>
 				</div>
@@ -106,69 +86,87 @@
 		<div class="header-bottom">
 			<div class="container">
 				<div class="row">
-				    <div class="vertical-menu col-md-3 hidden-xs hidden-sm">
+
+				    <div class="vertical-menu col-md-3">
 						<?php echo $this->getChildHtml('vmenu'); ?>
+
+                        <div class="righ-header-content gsb-header-top-link gsb-desktop">
+                            <ul class="top-link-product">
+                                <?php //echo $this->getChildHtml('catalog.compare.link'); ?>
+                                <li>
+                                    <div class="gsb-header-search">
+                                        <?php echo $this->getChildHtml('top.search'); ?>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a title="My wishlist" href="<?php echo $this->getUrl('wishlist') ?>" target="_blank" class="wishlist icon icon-favorites"></a>
+                                </li>
+                                <li>
+                                    <a title="Compare" href="<?php echo $this->getUrl('catalog/product_compare') ?>" target="_blank" class="btn-compare icon icon-compare compare"></a>
+                                </li>
+                            </ul>
+                            <?php echo $this->getChildHtml('minicart'); ?>
+                            <div class="place-menu-mobile menu-mobile"><i class="hidden">hidden</i>
+                                <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Menu') ?></span></span>
+                            </div>
+                        </div>
 				    </div>
 
                     <div id='main-menu' class='gsb-main-menu'>
                         <div class='gsb-container-menu'>
                             <nav class='gsb-navigation'>
                                 <span class='gsb-hamburger-menu'>
-
                                     <span class='gsb-burger-1'></span>
                                     <span class='gsb-burger-2'></span>
                                     <span class='gsb-burger-3'></span>
-
-                                    <div class="righ-header-content gsb-header-top-link">
-                                        <ul class="top-link-product">
-                                        <?php //echo $this->getChildHtml('catalog.compare.link'); ?>
-                                            <li>
-                                                <a title="Compare" href="<?php echo $this->getUrl('catalog/product_compare') ?>" target="_blank" class="icon icon-compare compare"></a>
-                                            </li>
-                                            <li>
-                                                <a title="My wishlist" href="<?php echo $this->getUrl('wishlist') ?>" target="_blank" class="wishlist icon icon-favorites "></a>
-                                            </li>
-                                        </ul>
-                                        <?php echo $this->getChildHtml('minicart'); ?>
-                                    </div>
                                 </span>
+                                <div class="righ-header-content gsb-header-top-link">
+                                    <ul class="top-link-product">
+
+                                        <li>
+                                            <a class="wishlist gsb-header-li icon icon-search" href="javascript:void(0)"></a>
+                                        </li>
+                                        <li>
+                                            <a title="My wishlist" href="<?php echo $this->getUrl('wishlist') ?>" target="_blank" class="wishlist icon icon-favorites "></a>
+                                        </li>
+                                        <li>
+                                            <a title="Compare" href="<?php echo $this->getUrl('catalog/product_compare') ?>" target="_blank" class="icon icon-compare compare"></a>
+                                        </li>
+                                        <li>
+                                            <?php echo $this->getChildHtml('minicart'); ?>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="gsb-header-search-movil" class="gsb-header">
+                                    <nav class="gsb-header-nav">
+                                        <?php echo $this->getChildHtml('top.search'); ?>
+                                    </nav>
+                                </div>
+                                <script type="text/javascript">
+                                    require(['jquery', 'jquery/ui'], function($){
+                                        $('.gsb-header-li').on('click', function(e) {
+                                            $(".gsb-burger-1, .gsb-burger-2, .gsb-burger-3").removeClass("open");
+                                            $(".gsb-core-menu").slideUp("fast");
+
+                                             $('.gsb-header').toggleClass('show').find('.gsb-search-input').focus();
+
+                                            $(this).toggleClass('icon-search');
+                                            $(this).toggleClass('icon-close-remove');
+                                            e.preventDefault();
+                                        });
+                                    });
+                                </script>
                                 <?php
-                                echo $this->getLayout()
+                                    echo $this->getLayout()
                                     ->createBlock('Teks\Alothemes\Block\Menu')
                                     ->setTemplate('topmenu.phtml')
                                     ->toHtml();
-                                echo $this->getChildHtml('topMenu'); ?>
-<!--                                    <ul class='gsb-core-menu'>-->
-<!--                                    <li><a href='#'>Laptop & computers<span class='gsb-toggle'></span></a>-->
-<!--                                        <ul class='gsb-dropdown'>-->
-<!--                                            <li><a href='#'>Windows 10<span class='toggle2'></span></a></a>-->
-<!--                                                <ul class='gsb-dropdown2'>-->
-<!--                                                    <li><a href='#'>Windows 10 Pro</a></li>-->
-<!--                                                    <li><a href='#'>Windows 10 Home</a></li>-->
-<!--                                                    <li><a href='#'>Profesional</a></li>-->
-<!--                                                </ul>-->
-<!--                                            </li>-->
-<!--                                            <li><a href='#'>Windows Phone</a></li>-->
-<!--                                            <li><a href='#'>Laptop</a></li>-->
-<!--                                        </ul>-->
-<!--                                    </li>-->
-<!--                                    <li><a href='#'>What's New<span class='gsb-toggle'></a>-->
-<!--                                        <ul class='gsb-dropdown'>-->
-<!--                                            <li><a href='#'>Cortana</a></li>-->
-<!--                                            <li><a href='#'>Xboct</a></li>-->
-<!--                                            <li><a href='#'>Microsoft Edge</a></li>-->
-<!--                                        </ul>-->
-<!--                                    </li>-->
-<!--                                    <li><a href='#'>Smartphones & tablets</a></li>-->
-<!--                                    <li><a href='#'>Women</a></li>-->
-<!--                                </ul>-->
+                                ?>
+
+
                             </nav>
                         </div>
                     </div>
-
-
-
-
 				</div>
 			</div>
 		</div>
